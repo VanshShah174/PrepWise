@@ -1,7 +1,7 @@
 import { cert, getApps,initializeApp} from "firebase-admin/app"
 import { getDefaultHighWaterMark } from "stream"
-import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase-admin/auth";
+import { getFirestore } from "firebase-admin/firestore";
 
 const initFirebaseAdmin = () => {
     const apps =  getApps()
