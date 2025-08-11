@@ -106,11 +106,10 @@ export async function createFeedback(params: CreateFeedbackParams) {
   }
 }
 
-
 export async function getFeedbackByInterviewId(
   params: GetFeedbackByInterviewIdParams
 ): Promise<Feedback | null> {
-  const { interviewId , userId} = params;
+  const { interviewId, userId } = params;
 
   const feedback = await db
     .collection("feedback")
@@ -119,13 +118,12 @@ export async function getFeedbackByInterviewId(
     .limit(1)
     .get();
 
-    if(feedback.empty) return null;
+  if (feedback.empty) return null;
 
-    const feedbackDoc = feedback.docs[0];
+  const feedbackDoc = feedback.docs[0];
 
-    return {
-      id: feedbackDoc.id, ...feedbackDoc.data()
-    } as Feedback;
-
-    
-  }
+  return {
+    id: feedbackDoc.id,
+    ...feedbackDoc.data(),
+  } as Feedback;
+}
