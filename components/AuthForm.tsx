@@ -46,7 +46,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("Form submitted with data:", data);
     setIsLoading(true);
     try {
       if (type === "sign-up") {
@@ -101,7 +100,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
         }, 2000);
       }
     } catch (error) {
-      console.log("Form submission error:", error);
+      console.error("Form submission error:", error);
       toast.error(`There was an error: ${error}`);
     } finally {
       setIsLoading(false);
@@ -109,7 +108,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
   };
 
   const onError = (errors: any) => {
-    console.log("Form validation errors:", errors);
+    console.error("Form validation errors:", errors);
   };
 
   const isSignIn = type === "sign-in";
