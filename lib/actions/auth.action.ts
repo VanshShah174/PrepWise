@@ -31,10 +31,10 @@ export async function signUp(params: SignUpParams) {
       email,
     });
 
-    return{
+    return {
         success: true,
         message: "Account created successfully, please sign in.",
-    }
+    };
 
   } catch (e: any) {
     console.error("Error creating a user:", e);
@@ -154,5 +154,27 @@ export async function isAuthenticated() {
     const user =  await getCurrentUser()
 
     return !!user;
+}
+
+/**
+ * Signs out the current user by clearing the session cookie
+ * @returns Object with success status and message
+ */
+export async function signOut() {
+  try {
+    const cookieStore = await cookies();
+    cookieStore.delete("session");
+    
+    return {
+      success: true,
+      message: "Signed out successfully",
+    };
+  } catch (error) {
+    console.error("Error signing out:", error);
+    return {
+      success: false,
+      message: "Failed to sign out",
+    };
+  }
 }
 
