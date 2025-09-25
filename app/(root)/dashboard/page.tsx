@@ -41,7 +41,7 @@ const Dashboard = async () => {
               Get Interview-Ready with <span className="text-primary-200">AI-Powered</span> Practice
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-              Practice on real interview questions & get instant feedback to improve your skills
+              Practice on real interview questions &amp; get instant feedback to improve your skills
             </p>
             <Button asChild className="bg-primary-200 text-dark-100 hover:bg-primary-200/90 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl rounded-full px-8 py-4 text-lg font-semibold">
               <Link href="/interview">Start an Interview ✨</Link>

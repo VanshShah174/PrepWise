@@ -13,6 +13,11 @@ export default function LandingPage() {
   const [isChecking, setIsChecking] = useState(true);
 
   useEffect(() => {
+    if (!auth) {
+      setIsChecking(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         router.replace("/dashboard");

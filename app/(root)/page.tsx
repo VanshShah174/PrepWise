@@ -1,7 +1,7 @@
-// This is now handled by the landing page component in app/page.tsx
-// No redirect logic needed here since we want to show the landing page
+import { redirect } from "next/navigation";
+
 const Home = () => {
-  return null;
+  redirect("/");
 };
 
 export default Home;

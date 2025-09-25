@@ -19,7 +19,7 @@ export async function getInterviewByUserId(
     .orderBy("createdAt", "desc")
     .get();
 
-  return interviews.docs.map((doc) => ({
+  return interviews.docs.map((doc: any) => ({
     id: doc.id,
     ...doc.data(),
   })) as Interview[];
@@ -42,7 +42,7 @@ export async function getLatestInterviews(
     .limit(limit)
     .get();
 
-  return interviews.docs.map((doc) => ({
+  return interviews.docs.map((doc: any) => ({
     id: doc.id,
     ...doc.data(),
   })) as Interview[];
